@@ -1,189 +1,188 @@
 :root {
-    --main-color: #ff0059;
-    --main-color-light: #ff337a;
-    --bg-dark: #0e0e0e;
-    --bg-card: #1a1a1a;
-    --text-light: #eaeaea;
-    --text-muted: #bbb;
-    --shadow-color: rgba(255, 0, 90, 0.2);
-    --shadow-hover: rgba(255, 0, 90, 0.4);
-    --transition-speed: 0.3s;
+  --main-color: #ff0059;
+  --main-color-light: #ff337a;
+  --bg-dark: #380505;
+  --bg-card: #1a1a1a;
+  --text-light: #eaeaea;
+  --text-muted: #bbb;
+  --shadow-color: rgba(255, 0, 90, 0.2);
+  --shadow-hover: rgba(255, 0, 90, 0.4);
+  --transition-speed: 0.3s;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+header {
+  background: rgba(25, 25, 25, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease;
+}
+
+header:hover {
+  background: rgba(25, 25, 25, 1);
+}
+
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(24px, 5vw, 28px);
+  color: var(--main-color);
+  text-shadow: 0 0 8px var(--main-color);
+  transition: text-shadow var(--transition-speed);
+}
+
+nav a {
+  color: var(--text-muted);
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color var(--transition-speed);
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--main-color);
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--main-color);
+  transition: width var(--transition-speed);
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
+
+.section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: clamp(22px, 4vw, 26px);
+  font-weight: bold;
+  border-left: 4px solid var(--main-color);
+  padding-left: 12px;
+  margin-bottom: 30px;
+  transition: transform var(--transition-speed);
+}
+
+.section-title:hover {
+  transform: translateX(5px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-    scroll-behavior: smooth;
-  }
-  
-  header {
-    background: rgba(25, 25, 25, 0.85);
-    backdrop-filter: blur(10px);
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background 0.3s ease;
-  }
-  
-  header:hover {
-    background: rgba(25, 25, 25, 1);
-  }
-  
-  header h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(24px, 5vw, 28px);
-    color: var(--main-color);
-    text-shadow: 0 0 8px var(--main-color);
-    transition: text-shadow var(--transition-speed);
-  }
-  
-  nav a {
-    color: var(--text-muted);
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: 500;
-    position: relative;
-    transition: color var(--transition-speed);
-  }
-  
-  nav a:hover,
-  nav a:focus {
-    color: var(--main-color);
-  }
-  
-  nav a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: var(--main-color);
-    transition: width var(--transition-speed);
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-  }
-  
-  nav a:hover::after,
-  nav a:focus::after {
-    width: 100%;
-  }
-  
-  .section {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
-  
-  .section-title {
-    font-size: clamp(22px, 4vw, 26px);
-    font-weight: bold;
-    border-left: 4px solid var(--main-color);
-    padding-left: 12px;
-    margin-bottom: 30px;
-    transition: transform var(--transition-speed);
-  }
-  
-  .section-title:hover {
-    transform: translateX(5px);
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    animation: fadeIn 1s ease-out;
-  }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .card {
-    background-color: var(--bg-card);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 15px var(--shadow-color);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  }
-  
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 25px var(--shadow-hover);
-  }
-  
-  .card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  
-  .card-content {
-    padding: 16px;
-    transition: background-color var(--transition-speed);
-  }
-  
-  .card-content:hover {
-    background-color: rgba(255, 0, 90, 0.1);
-  }
-  
-  .card-content h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: var(--main-color);
-  }
-  
-  .card-content p {
-    font-size: 15px;
-    color: var(--text-muted);
-  }
-  
-  footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: #666;
-    font-size: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  
-  footer a {
-    color: var(--main-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  footer a:hover {
-    color: var(--main-color-light);
-  }
-  
-  button,
-  a:focus,
-  input:focus,
-  textarea:focus {
-    outline: 2px solid var(--main-color);
-    outline-offset: 4px;
-    transition: outline-color 0.3s ease;
-  }
-  
+}
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px var(--shadow-color);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px var(--shadow-hover);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 16px;
+  transition: background-color var(--transition-speed);
+}
+
+.card-content:hover {
+  background-color: rgba(255, 0, 90, 0.1);
+}
+
+.card-content h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--main-color);
+}
+
+.card-content p {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer a {
+  color: var(--main-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--main-color-light);
+}
+
+button,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--main-color);
+  outline-offset: 4px;
+  transition: outline-color 0.3s ease;
+}
